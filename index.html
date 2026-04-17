@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibPro | Digital Library Archive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="mesh-gradient"></div>
+
+    <nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">Lib<span>Pro</span></div>
+        <div class="nav-links">
+            <a href="#intro">Home</a>
+            <a href="#picks">Curated</a>
+            <a href="#add">Register</a>
+            <a href="#borrowed-page">Borrowed</a>
+            <a href="#inventory-page" class="nav-cta">Vault View</a>
+        </div>
+    </div>
+</nav>
+
+    <div class="container">
+        
+        <section id="intro" class="hero">
+            <div class="particles-container">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="star">✦</div>
+                <div class="star" style="top: 25%; left: 80%;">✦</div>
+                <div class="star" style="top: 70%; left: 20%;">✦</div>
+            </div>
+
+            <div class="hero-content">
+                <div class="badge-new">✨ Intelligent Archive</div>
+                <h1>The Library <span>Redefined.</span></h1>
+                <p>A minimalist sanctuary for your digital and physical collection. Catalog every volume with precision and track circulation with ease.</p>
+                
+                <div class="hero-stats">
+                    <div class="card stat-card">
+                        <span>📚</span>
+                        <div>
+                            <strong>Vault Size</strong>
+                            <div id="countTotal">0</div>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <span>📤</span>
+                        <div>
+                            <strong>Borrowed</strong>
+                            <div id="countBorrowed">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="picks">
+            <h3 class="section-label">Curated Recommendations</h3>
+            <div class="suggest-grid">
+                <div class="card">
+                    <div class="cover" style="background-image: url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400');"></div>
+                    <h4>Clean Code</h4>
+                    <button class="nav-cta full-btn" onclick="quickAdd('Clean Code', 'Robert Martin', 'Tech')">Quick Add</button>
+                </div>
+                <div class="card">
+                    <div class="cover" style="background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400');"></div>
+                    <h4>The Alchemist</h4>
+                    <button class="nav-cta full-btn" onclick="quickAdd('The Alchemist', 'Paulo Coelho', 'Fiction')">Quick Add</button>
+                </div>
+                <div class="card">
+                    <div class="cover" style="background-image: url('https://images.unsplash.com/photo-1589998059171-988d887df646?w=400');"></div>
+                    <h4>Design Patterns</h4>
+                    <button class="nav-cta full-btn" onclick="quickAdd('Design Patterns', 'Erich Gamma', 'Tech')">Quick Add</button>
+                </div>
+                <div class="card">
+                    <div class="cover" style="background-image: url('https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=400');"></div>
+                    <h4>1984</h4>
+                    <button class="nav-cta full-btn" onclick="quickAdd('1984', 'George Orwell', 'Fiction')">Quick Add</button>
+                </div>
+                <div class="card">
+                    <div class="cover" style="background-image: url('https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=400');"></div>
+                    <h4>Steve Jobs</h4>
+                    <button class="nav-cta full-btn" onclick="quickAdd('Steve Jobs', 'Walter Isaacson', 'History')">Quick Add</button>
+                </div>
+                <div class="card">
+                    <div class="cover" style="background-image: url('https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400');"></div>
+                    <h4>Great Gatsby</h4>
+                    <button class="nav-cta full-btn" onclick="quickAdd('The Great Gatsby', 'F. Scott Fitzgerald', 'Fiction')">Quick Add</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="add">
+            <div class="glass-form">
+                <div class="badge-new">Registry Office</div>
+                <h2>Register New Volume</h2>
+                <form id="bookForm">
+                    <div class="input-row">
+                        <input type="text" id="title" placeholder="Book Title" required>
+                        <input type="text" id="author" placeholder="Author" required>
+                    </div>
+                    <select id="category">
+                        <option value="Tech">Technology</option>
+                        <option value="Science">Science</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="History">History</option>
+                    </select>
+                    <button type="submit" class="nav-cta full-btn">Commit to Registry</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="borrowed-page">
+            <h2 class="section-title rose">Borrowed Archive</h2>
+            <div class="inventory-table-container borrowed-border">
+                <table class="inventory-table">
+                    <thead>
+                        <tr><th>Book Title</th><th>Borrower</th><th>Status</th><th>Date Issued</th><th>Action</th></tr>
+                    </thead>
+                    <tbody id="borrowedBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="inventory-page">
+            <div class="flex-header">
+                <h2>Main Inventory</h2>
+                <input type="text" id="searchInput" placeholder="Search the vault..." onkeyup="filterInventory()">
+            </div>
+            <div class="inventory-table-container">
+                <table class="inventory-table">
+                    <thead>
+                        <tr><th>Title</th><th>Author</th><th>Category</th><th>Status</th><th>Management</th></tr>
+                    </thead>
+                    <tbody id="inventoryBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="feedback">
+            <div class="glass-form">
+                <div class="badge-new">Community</div>
+                <h2>Librarian Feedback</h2>
+                <form id="feedbackForm">
+                    <div class="input-row">
+                        <input type="text" id="fbName" placeholder="Your Name" required>
+                        <select id="fbRating">
+                            <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                            <option value="4">⭐⭐⭐⭐ Great</option>
+                        </select>
+                    </div>
+                    <textarea id="fbMessage" placeholder="How can we improve?" rows="4"></textarea>
+                    <button type="submit" class="nav-cta full-btn">Send Feedback</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
