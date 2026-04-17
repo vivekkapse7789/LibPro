@@ -8,19 +8,17 @@
 
 
 
-\*\*LibPro\*\* is a sophisticated, full-stack library management solution designed with a modern "Cinematic Gallery" aesthetic. It bridges the gap between high-end SaaS UI design and functional inventory management.
+\*\*LibPro\*\* is a sophisticated, full-stack library management solution designed with a modern "Cinematic Gallery" aesthetic.
 
 
 
 \## ✨ Key Features
 
-\* \*\*Cinematic Hero Section:\*\* Animated "Aurora" mesh gradient and floating particle effects.
+\* \*\*Cinematic Hero Section:\*\* Animated "Aurora" mesh gradient.
 
-\* \*\*Curated Book Gallery:\*\* Interactive "Light Glow" hover effects and dynamic scaling.
+\* \*\*Curated Book Gallery:\*\* Interactive "Light Glow" hover effects.
 
-\* \*\*Real-time Inventory:\*\* Manage availability with visual "Available" and "Borrowed" badges.
-
-\* \*\*Glassmorphic UI:\*\* Built with \*\*Plus Jakarta Sans\*\* and heavy backdrop blurs.
+\* \*\*Real-time Inventory:\*\* Visual badges for book availability.
 
 
 
@@ -40,23 +38,25 @@
 
 
 
-\## 🛠️ Installation \& Setup
+\## 📂 Project Structure
 
-1\. \*\*Clone the Repository:\*\* `git clone https://github.com/vivekkapse7789/LibPro.git`
+```text
 
-2\. \*\*Move to XAMPP:\*\* Place folder in `C:\\xampp\\htdocs\\`
+LibPro/
 
-3\. \*\*Database:\*\* Create `library\_db` in phpMyAdmin and import tables.
+├── css/
 
-4\. \*\*Launch:\*\* Open `http://localhost/library\_system`
+│   └── style.css       
 
+├── js/
 
+│   └── script.js      
 
-\## 👨‍💻 Author
+├── includes/
 
-\*\*Vivek Sunil Kapase\*\*
+│   └── db\_connect.php  
 
-\* \*\*Role:\*\* Full-Stack Developer
+├── index.php           
 
-\* \*\*GitHub:\*\* \[@vivekkapse7789](https://github.com/vivekkapse7789)
+└── README.md
 
